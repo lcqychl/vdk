@@ -516,11 +516,20 @@ func (self CodecData) AVCDecoderConfRecordBytes() []byte {
 }
 
 func (self CodecData) SPS() []byte {
-	return self.RecordInfo.SPS[0]
+	if self.RecordInfo.SPS != nil {
+		return self.RecordInfo.SPS[0]
+	} else {
+		return nil
+	}
+
 }
 
 func (self CodecData) PPS() []byte {
-	return self.RecordInfo.PPS[0]
+	if self.RecordInfo.PPS != nil {
+		return self.RecordInfo.PPS[0]
+	} else {
+		return nil
+	}
 }
 
 func (self CodecData) Width() int {
