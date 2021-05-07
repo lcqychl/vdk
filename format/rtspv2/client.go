@@ -144,7 +144,7 @@ func Dial(options RTSPClientOptions) (*RTSPClient, error) {
 		}
 		if i2.AVType == VIDEO {
 			if i2.Type == av.H264 {
-				if len(i2.SpropParameterSets) > 1 && len(i2.SpropParameterSets[0]) > 4 {
+				if len(i2.SpropParameterSets) > 1 && len(i2.SpropParameterSets[0]) > 3 {
 					if codecData, err := h264parser.NewCodecDataFromSPSAndPPS(i2.SpropParameterSets[0], i2.SpropParameterSets[1]); err == nil {
 						client.sps = i2.SpropParameterSets[0]
 						client.pps = i2.SpropParameterSets[1]
